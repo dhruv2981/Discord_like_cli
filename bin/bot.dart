@@ -9,12 +9,12 @@ import 'package:sembast/sembast_io.dart';
 
 
 
-void main(List<String> arguments) {
+void main(List<String> arguments)async {
   
   //setting up db connection
-  const dbPath = '../db';
+  const dbPath = '../lib/src/db/database.db';
   final DatabaseFactory db_factory=databaseFactoryIo;
-  Database db =db_factory.openDatabase(dbPath);
+  Database db = await db_factory.openDatabase(dbPath);
   StoreRef<String,String>  store1 =
       StoreRef<String, String>.main();
 
@@ -33,5 +33,5 @@ void main(List<String> arguments) {
   
 
   
-  db.close();
+  await db.close();
 }
