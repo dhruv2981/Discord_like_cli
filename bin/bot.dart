@@ -27,6 +27,7 @@ Future<void> main(List<String> arguments)async {
 
   StoreRef<String, String> c_user =myList[2]; 
   
+  C_user c_user_c = new C_user("0", "0"); //the name is c_user_c because c_user is already something so to avoid confusion
 
   
   print("working 2");
@@ -36,10 +37,10 @@ Future<void> main(List<String> arguments)async {
 
     switch (input) {
       case 'r':
-        await Admin.register(db, user_store, c_user, records);
+        await Admin.register(db, user_store, c_user, records, c_user_c);
         break;
       case 'l':
-        await Admin.login(db, user_store, c_user, records);
+        await Admin.login(db, user_store, c_user, records, c_user_c);
         break;
       default:
         print('Invalid Input');
