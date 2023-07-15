@@ -1,4 +1,4 @@
-import 'package:bot/bot.dart';
+import 'package:bot/src/models/bot.dart';
 import 'package:test/test.dart';
 
 void main() {

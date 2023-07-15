@@ -2,36 +2,19 @@ import 'dart:io';
 import 'dart:convert';
 import 'storage.dart';
 
+
 import 'package:sembast/sembast.dart';
- import 'package:sembast/sembast_io.dart';
+import 'package:sembast/sembast_io.dart';
 
-class Admin {
 
-   late String username;
-   late String password;
+class Admin{
+
+   String username;
+   String password;
    Admin(this.username,this.password);
    
 
-
-  static initial() {
-    stdout.write('Register or Login (r/l) ');
-    final input = stdin.readLineSync();
-
-    switch (input) {
-      case 'r':
-        register();
-        break;
-      case 'l':
-        login();
-        break;
-      default:
-        print('Invalid Input');
-    }
-  }
-
-
-
-  static register() {
+  static void register(Database db, StoreRef<String, String> user_store) async {
     stdout.write("Username: ");
     final username = stdin.readLineSync() as String;
     //check if already that user exist
@@ -44,19 +27,17 @@ class Admin {
 
     if (pass != con_pass) {
       print("Password dont match");
-    }
-    Admin user =Admin(username,pass);
-    var json_user=jsonEncode(user);
-    store1.record(username).put(db, json_user);
+      return;
+    } else{
+      print(pass);
+    Admin new_user =new Admin(username,pass);
+    //Now adding the newly registered user into the the user store
+    await user_store.record(new_user.username).put(db, new_user.password);
     print('User registered successfully');
-
-    
-
-
+    }
 
 
   }
-
 
 
   static login() {
@@ -72,8 +53,6 @@ class Admin {
 
     //if both coorect login successfully
   }
-
-
 
 
   logout() {}
