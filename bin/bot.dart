@@ -1,8 +1,9 @@
- import 'dart:io';
+import 'dart:io';
 import 'dart:convert';
 import 'package:sembast/sembast.dart';
 import 'package:bot/src/models/storage.dart';
 import 'package:bot/src/models/admin.dart';
+import 'package:bot/src/models/exceptions.dart';
 import 'package:args/args.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
@@ -10,7 +11,7 @@ import 'admin1.dart';
 
 
 
-void main(List<String> arguments)async {
+Future<void> main(List<String> arguments)async {
   
   var st=  Storage.constructor1();
   await st.connection();
@@ -22,19 +23,24 @@ void main(List<String> arguments)async {
   print("working 1");
 
   StoreRef<String, String> user_store =myList[1]; 
+  var records = myList[3];
+
+  StoreRef<String, String> c_user =myList[2]; 
+  
+  C_user c_user_c = new C_user("0", "0"); //the name is c_user_c because c_user is already something so to avoid confusion
 
   
   print("working 2");
-  void initial() {
+  Future<void> initial() async {
     stdout.write('Register or Login (r/l) ');
     final input = stdin.readLineSync();
 
     switch (input) {
       case 'r':
-        Admin.register(db, user_store);
+        await Admin.register(db, user_store, c_user, records, c_user_c);
         break;
       case 'l':
-        Admin.login();
+        await Admin.login(db, user_store, c_user, records, c_user_c);
         break;
       default:
         print('Invalid Input');
@@ -42,8 +48,7 @@ void main(List<String> arguments)async {
   }
 
 //Asking for initial login or register
-  initial();
+  await initial();
 
-  
   await db.close();
 }
