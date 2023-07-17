@@ -2,10 +2,10 @@ import 'dart:io';
 import 'package:bot/src/models/message.dart';
 import 'package:sembast/sembast.dart';
 import 'package:bot/src/models/storage.dart';
+import 'package:bot/src/models/others.dart';
 import 'package:bot/src/models/admin.dart';
 import 'package:bot/src/models/direct_message.dart';
 import 'package:bot/src/models/server.dart';
-
 
 void main() async {
   var st = Storage.constructor1();
@@ -92,7 +92,9 @@ void main() async {
         await c_msg.personal_dm(db5, db1, p_dm_store, user_store, c_user_c);
         break;
       // case "help":
-
+      case "show_channels":
+        await show_channels(db2, server_store, c_user_c);
+        break;
       case "logout":
         await Admin.logout(c_user_c);
         flag = false;

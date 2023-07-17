@@ -61,12 +61,27 @@ class Server {
         print("No server with such name exists");
         return;
       }
+
       Map pr = await server_store.record(s_name).get(db2) as Map;
-      pr = cloneMap(pr); // Create a copy of the map
-      pr['mem_list'].add(c_user1.username);
-      print("error");
-      await server_store.record(s_name).delete(db2);
-      await server_store.record(s_name).put(db2, pr);
+      //if the user is already in the server
+      bool flag1 = false;
+      for (var user in pr['mem_list']) {
+        if (user == c_user1.username) {
+          flag1 = true;
+        }
+      }
+      if (flag1) {
+        print("The user is already in the given server");
+        return;
+      }else{
+        //the user is not in the server, hence adding it
+        pr = cloneMap(pr); // Create a copy of the map
+        pr['mem_list'].add(c_user1.username);
+        await server_store.record(s_name).delete(db2);
+        await server_store.record(s_name).put(db2, pr);
+        print("User successfully added to the server");
+
+      }
       //do we need to check the user has already not joined channel
     }
   }
