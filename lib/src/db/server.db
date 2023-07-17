@@ -9,3 +9,6 @@
 {"key":"c","value":{"chan_list":["c"],"mem_list":["a"]}}
 {"key":"aa","value":{"chan_list":[],"mem_list":["a"]}}
 {"key":"aa","value":{"chan_list":["aa"],"mem_list":["a"]}}
+{"key":"b","value":{"chan_list":[],"mem_list":["f"]}}
+{"key":"b","deleted":true}
+{"key":"b","value":{"chan_list":["a"],"mem_list":["f"]}}

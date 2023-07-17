@@ -56,7 +56,7 @@ class Personal_dm {
       return;
     } else {
       print("Messages");
-      print("Sender: Message\n");
+      print("Sender: Message");
       var record = await p_dm_store.find(db5);
       var a = 0;
       for (var rec in record) {

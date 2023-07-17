@@ -26,6 +26,7 @@ class Server {
       stdout.write("Name of the server: ");
       final s_name = stdin.readLineSync() as String;
       this.name = s_name;
+      var server_record = await server_store.find(db2);
       for (var rec in server_record) {
         if (rec.key == s_name) {
           print("Server already exists. Please choose a different servername.");
@@ -68,7 +69,7 @@ class Server {
       pr['mem_list'].add(c_user1.username);
       print("error");
       await server_store.record(s_name).delete(db2);
-      await server_store.record(s_name).put(db2,pr);
+      await server_store.record(s_name).put(db2, pr);
       //do we need to check the user has already not joined channel
     }
   }
@@ -117,10 +118,9 @@ class Channel {
       final c_type = stdin.readLineSync();
       //ctype must be of particular types only
       var a = 0;
+
       for (var rec in channel_record) {
         if (rec.key == c_name) {
-          print(
-              "Channel already exists. Please choose a different channelname.");
           a++;
           break;
         }
@@ -130,7 +130,6 @@ class Channel {
           'server_name': s_name,
           'mem_list': [c_user1.username],
           'type': c_type,
-          
         };
 
         this.server = s_map['server_name'] as String;
@@ -139,6 +138,7 @@ class Channel {
         await channel_store.record(c_name).put(db3, s_map);
       } else {
         Map po = await channel_store.record(c_name).get(db3) as Map;
+        po = cloneMap(po);
         po['mem_list'].add(c_name);
         await channel_store.record(c_name).delete(db3);
         await channel_store.record(c_name).put(db3, po);

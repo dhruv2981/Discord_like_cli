@@ -55,9 +55,8 @@ Future<void> main(List<String> arguments) async {
   Personal_dm c_msg = Personal_dm();
 
   // await c_server.create_server(db2, server_store, c_user_c, server_record);
-  // await c_server.create_server(db2, server_store, c_user_c, server_record);
   // await c_channel.add_channel(db2,db3,channel_store, server_store, c_user_c, channel_record ,server_record);
-  await c_msg.personal_dm(db5, db1, p_dm_store, user_store, c_user_c);
+  // await c_msg.personal_dm(db5, db1, p_dm_store, user_store, c_user_c);
   await c_msg.open_personal_dm(db5, p_dm_store, c_user_c);
 
   await db1.close();

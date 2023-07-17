@@ -1,3 +1,4 @@
 {"version":1,"sembast":1}
 {"key":"c","value":{"server_name":"c","mem_list":["a"],"type":"text"}}
 {"key":"aa","value":{"server_name":"aa","mem_list":["a"],"type":"text"}}
+{"key":"a","value":{"server_name":"b","mem_list":["f"],"type":"text"}}

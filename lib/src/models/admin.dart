@@ -21,6 +21,7 @@ class Admin {
     final username = stdin.readLineSync() as String;
     //check if already that user exist
     //if exist throw error
+    var record=await user_store.find(db1);
     for (var rec in records) {
       if (rec.key == username) {
         print("Username already exists. Please choose a different username.");
@@ -66,7 +67,7 @@ class Admin {
     if (username == null) {
       return;
     }
-
+    
     //check user is in record otherwise register
     bool flag = false;
     for (var rec in record) {
