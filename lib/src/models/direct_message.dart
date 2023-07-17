@@ -1,16 +1,11 @@
 import 'dart:io';
-import 'dart:convert';
-import 'storage.dart';
 import 'package:sembast/sembast.dart';
-import 'package:sembast/sembast_io.dart';
 import 'admin.dart';
-import 'package:sembast/utils/value_utils.dart';
 
 class Personal_dm {
   late final sender;
   late final receiver;
   late final msg;
-  // Personal_dm(this.receiver);
 
   personal_dm(Database db5, Database db1, StoreRef<Map, String> p_dm_store,
       StoreRef<String, String> user_store, C_user c_user1) async {

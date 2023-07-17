@@ -1,6 +1,10 @@
-#make record function ok 
+
 #incorporate the server function
 #categories-inverse
 #type of channel
 #moderators and owner
+
+
 #keep care vo same banda phr na add ho jaye channel aur server mei 
+#show channel message
+#help

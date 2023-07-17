@@ -1,8 +1,5 @@
 import 'dart:io';
-import 'dart:convert';
-import 'storage.dart';
 import 'package:sembast/sembast.dart';
-import 'package:sembast/sembast_io.dart';
 import 'admin.dart';
 import 'package:sembast/utils/value_utils.dart';
 
@@ -139,7 +136,7 @@ class Channel {
       } else {
         Map po = await channel_store.record(c_name).get(db3) as Map;
         po = cloneMap(po);
-        po['mem_list'].add(c_name);
+        po['mem_list'].add(c_user1.username);
         await channel_store.record(c_name).delete(db3);
         await channel_store.record(c_name).put(db3, po);
       }
