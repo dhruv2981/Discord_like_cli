@@ -130,6 +130,7 @@ class Channel {
           'server_name': s_name,
           'mem_list': [c_user1.username],
           'type': c_type,
+          
         };
 
         this.server = s_map['server_name'] as String;

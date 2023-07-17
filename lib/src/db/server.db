@@ -1,0 +1,11 @@
+{"version":1,"sembast":1}
+{"key":"tri","value":{"chan_list":[],"mem_list":["r"]}}
+{"key":"trii","value":{"chan_list":[],"mem_list":["r"]}}
+{"key":"trr","value":{"chan_list":[],"mem_list":["r"]}}
+{"key":"d","value":{"chan_list":[],"mem_list":["c"]}}
+{"key":"e","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"f","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"c","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"c","value":{"chan_list":["c"],"mem_list":["a"]}}
+{"key":"aa","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"aa","value":{"chan_list":["aa"],"mem_list":["a"]}}

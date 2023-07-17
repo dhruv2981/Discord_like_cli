@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:bot/src/models/message.dart';
 import 'package:sembast/sembast.dart';
 import 'package:bot/src/models/storage.dart';
 import 'package:bot/src/models/admin.dart';
@@ -18,13 +19,15 @@ Future<void> main(List<String> arguments) async {
   Database db1 = myList[0];
   Database db2 = myList[1];
   Database db3 = myList[2];
-  StoreRef<String, String> user_store = myList[3];
-  StoreRef<String, Map> server_store = myList[4];
+  Database db5 = myList[3];
+  StoreRef<String, String> user_store = myList[4];
+  StoreRef<String, Map> server_store = myList[5];
   print("check5");
-  StoreRef<String, Map> channel_store = myList[5];
-  var records = myList[6];
-  var server_record = myList[7];
-  var channel_record = myList[8];
+  StoreRef<String, Map> channel_store = myList[6];
+  StoreRef<Map, String> p_dm_store = myList[7];
+  var records = myList[8];
+  var server_record = myList[9];
+  var channel_record = myList[10];
 
   print("check6");
   C_user c_user_c = new C_user("0",
@@ -49,13 +52,16 @@ Future<void> main(List<String> arguments) async {
   await initial();
   var c_server = Server.constructor();
   var c_channel = Channel.constructor();
-
+  Personal_dm c_msg = Personal_dm();
 
   // await c_server.create_server(db2, server_store, c_user_c, server_record);
-  await c_server.create_server(db2, server_store, c_user_c, server_record);
-  await c_channel.add_channel(db2,db3,channel_store, server_store, c_user_c, channel_record ,server_record);
+  // await c_server.create_server(db2, server_store, c_user_c, server_record);
+  // await c_channel.add_channel(db2,db3,channel_store, server_store, c_user_c, channel_record ,server_record);
+  await c_msg.personal_dm(db5, db1, p_dm_store, user_store, c_user_c);
+  await c_msg.open_personal_dm(db5, p_dm_store, c_user_c);
 
   await db1.close();
   await db2.close();
   await db3.close();
+  await db5.close();
 }
