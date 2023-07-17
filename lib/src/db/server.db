@@ -1,14 +1,4 @@
 {"version":1,"sembast":1}
-{"key":"tri","value":{"chan_list":[],"mem_list":["r"]}}
-{"key":"trii","value":{"chan_list":[],"mem_list":["r"]}}
-{"key":"trr","value":{"chan_list":[],"mem_list":["r"]}}
-{"key":"d","value":{"chan_list":[],"mem_list":["c"]}}
-{"key":"e","value":{"chan_list":[],"mem_list":["a"]}}
-{"key":"f","value":{"chan_list":[],"mem_list":["a"]}}
-{"key":"c","value":{"chan_list":[],"mem_list":["a"]}}
-{"key":"c","value":{"chan_list":["c"],"mem_list":["a"]}}
-{"key":"aa","value":{"chan_list":[],"mem_list":["a"]}}
-{"key":"aa","value":{"chan_list":["aa"],"mem_list":["a"]}}
-{"key":"b","value":{"chan_list":[],"mem_list":["f"]}}
-{"key":"b","deleted":true}
-{"key":"b","value":{"chan_list":["a"],"mem_list":["f"]}}
+{"key":"s1","value":{"chan_list":["c1","c1","c2","c1","c1"],"mem_list":["a","b","b","b"]}}
+{"key":"s2","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"s3","value":{"chan_list":[],"mem_list":["a"]}}

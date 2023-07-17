@@ -92,10 +92,6 @@ Future<void> channel_message(
             await message_store.record(message_key).put(db4, message_value);
             print("Message sent successfully.");
             
-            message_record = await message_store.find(db4);
-            for(var rec in message_record){
-                print(rec.value);
-            }
         }
     }
   }

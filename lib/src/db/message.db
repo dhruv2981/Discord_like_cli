@@ -1,1 +1,6 @@
 {"version":1,"sembast":1}
+{"key":{"channel_name":"c1","server_name":"s1"},"value":{"user":"a","message":"hello"}}
+{"key":{"channel_name":"c2","server_name":"s1"},"value":{"user":"a","message":"hello"}}
+{"key":{"channel_name":"c1","server_name":"s1"},"value":{"user":"a","message":"hello2"}}
+{"key":{"channel_name":"c1","server_name":"s1"},"value":{"user":"b","message":"hello b"}}
+{"key":{"channel_name":"c1","server_name":"s1"},"value":{"user":"a","message":"testing "}}

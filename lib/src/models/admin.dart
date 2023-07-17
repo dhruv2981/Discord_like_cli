@@ -1,13 +1,15 @@
 import 'dart:io';
-import 'dart:convert';
-import 'storage.dart';
 import 'package:sembast/sembast.dart';
-import 'package:sembast/sembast_io.dart';
 
 class C_user {
   String username;
   String password;
   C_user(this.username, this.password);
+
+  print_c_user(){
+    print(this.username);
+  }
+
 }
 
 class Admin {
@@ -21,7 +23,7 @@ class Admin {
     final username = stdin.readLineSync() as String;
     //check if already that user exist
     //if exist throw error
-    var record=await user_store.find(db1);
+    // var record=await user_store.find(db1);
     for (var rec in records) {
       if (rec.key == username) {
         print("Username already exists. Please choose a different username.");
