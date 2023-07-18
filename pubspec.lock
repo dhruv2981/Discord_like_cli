@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.3"
+  crypt:
+    dependency: "direct main"
+    description:
+      name: crypt
+      sha256: fef2b24f8fb73b626224b207b2e57ac139d38b63dc7428257f820a2fd9e4688b
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.0"
   crypto:
     dependency: transitive
     description:

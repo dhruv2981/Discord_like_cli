@@ -1,12 +1,18 @@
 import 'dart:io';
 import 'package:sembast/sembast.dart';
+import 'dart:convert';
+import 'package:crypt/crypt.dart';
 
 class C_user {
   String username;
   String password;
   C_user(this.username, this.password);
 
-  print_c_user() {
+  print_c_user(C_user c_user1) {
+    if (c_user1.username == "0") {
+      print("No user has logged in you crazy fool");
+      return;
+    }
     print(this.username);
   }
 }
@@ -15,6 +21,15 @@ class Admin {
   String username;
   String password;
   Admin(this.username, this.password);
+
+  static String hashPwd(String pass) {
+    return Crypt.sha256(pass, rounds: 1000).toString();
+  }
+
+  static bool comparePwd(String passvalue, String hash_pwd) {
+    final hashedPwd = Crypt(hashPwd(hash_pwd));
+    return hashedPwd.match(passvalue);
+  }
 
   static Future<void> register(Database db1,
       StoreRef<String, String> user_store, var records, C_user c_user1) async {
@@ -31,14 +46,15 @@ class Admin {
     }
 
     stdout.write("Password :");
-    final pass = stdin.readLineSync() as String;
+    var pass = stdin.readLineSync() as String;
     stdout.write("Confirm Password :");
-    final con_pass = stdin.readLineSync() as String;
+    var con_pass = stdin.readLineSync() as String;
 
     if (pass != con_pass) {
       print("Password dont match");
       return;
     }
+    pass = hashPwd(pass);
 
     Admin new_user = new Admin(username, pass);
     //Now adding the newly registered user into the the user store
@@ -83,7 +99,7 @@ class Admin {
     final pass = stdin.readLineSync();
     if (pass == null) {
       return;
-    } else if (pass == actual_pwd) {
+    } else if (comparePwd(pass, actual_pwd)) {
       c_user1.username = username;
       c_user1.password = pass;
       print("User Logged in");

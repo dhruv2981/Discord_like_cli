@@ -11,6 +11,7 @@ dependencies:
   args: ^2.0.0
   path: ^1.8.0
   sembast: ^3.0.0
+  crypt: ^4.3.0
 
 dev_dependencies:
   lints: ^2.0.0
