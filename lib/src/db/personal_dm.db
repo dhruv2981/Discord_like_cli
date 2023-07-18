@@ -4,3 +4,4 @@
 {"key":{"sender":"f","receiver":"a"},"value":"\"maza aa raha hai msg krke\""}
 {"key":{"sender":"a","receiver":"a"},"value":"\"khud ko msg krne lag gya hun\""}
 {"key":{"sender":"f","receiver":"r"},"value":"just checking baby"}
+{"key":{"sender":"a","receiver":"f"},"value":"this is the new message"}
