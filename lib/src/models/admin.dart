@@ -26,8 +26,8 @@ class Admin {
     return Crypt.sha256(pass, rounds: 1000).toString();
   }
 
-  static bool comparePwd(String passvalue, String hash_pwd) {
-    final hashedPwd = Crypt(hashPwd(hash_pwd));
+  static bool comparePwd(String passvalue,String hash_pwd) {
+    final hashedPwd = Crypt(hash_pwd);
     return hashedPwd.match(passvalue);
   }
 
@@ -91,6 +91,7 @@ class Admin {
     //if both coorect login successfully
 
     var actual_pwd = await user_store.record(username).get(db1);
+    print(actual_pwd);
     if (actual_pwd == null) {
       return;
     }

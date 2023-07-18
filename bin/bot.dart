@@ -11,8 +11,8 @@ void main() async {
   var st = Storage.constructor1();
   C_user c_user_c = new C_user("0", "0");
   //the name is c_user_c because c_user is already something so to avoid confusion
-  var c_server = Server.constructor();
-  var c_channel = Channel.constructor();
+  var c_server = Server();
+  var c_channel = Channel();
   Personal_dm c_msg = Personal_dm();
 
   List<dynamic> myList = await st.connection();

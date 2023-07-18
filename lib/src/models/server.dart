@@ -8,8 +8,8 @@ class Server {
   late List<String> chan_list;
   late List<String> mem_list;
   // List<String> moderator;
-  Server(this.name, this.chan_list, this.mem_list);
-  Server.constructor();
+  
+  
 
   create_server(Database db2, StoreRef<String, Map> server_store,
       C_user c_user1, var server_record) async {
@@ -98,8 +98,6 @@ class Channel {
   late String server;
   late List<String> mem_list;
 
-  Channel.constructor();
-  Channel(this.name, this.type, this.server, this.mem_list);
 
   add_channel(
     Database db2,

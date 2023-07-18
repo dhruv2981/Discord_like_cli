@@ -25,3 +25,8 @@ in `lib/`, and example unit test in `test/`.
 >>create_server: to create a server
 >>add_channel: to add a channel in a server
 >>show_channels: to print channels in a server
+
+
+login
+#a,a
+#b,b
