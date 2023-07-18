@@ -81,7 +81,6 @@ class Server {
         await server_store.record(s_name).put(db2, pr);
         print("User successfully added to the server");
       }
-      //do we need to check the user has already not joined channel
     }
   }
 }

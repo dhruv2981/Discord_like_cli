@@ -9,7 +9,6 @@ enum ChannelType {
   stage,
 }
 
-
 class Channel {
   late String name;
   late ChannelType type;
@@ -82,9 +81,9 @@ class Channel {
       //checking if such a channel exists
       // bool channel_exist = false;
       for (var rec in channel_record) {
-        //checking if this is the channel of the correct type and in the correct server
+        //checking if this is the channel of the correct type and in the correct server  (shannel name making unique in a server)
         if (rec.key == c_name &&
-            rec.value['type'] == c_type &&
+            // rec.value['type'] == c_type &&
             rec.value['server_name'] == s_name) {
           // channel_exist = true;
 
@@ -103,7 +102,6 @@ class Channel {
           await channel_store.record(c_name).delete(db3);
           await channel_store.record(c_name).put(db3, po);
 
-          
           Map pr = await server_store.record(s_name).get(db2) as Map;
           pr = cloneMap(pr); // Create a copy of the map
           pr['chan_list'].add(c_name);
@@ -121,7 +119,6 @@ class Channel {
           'type': c_type,
         };
 
-        print("printing the channel does not exist");
         await channel_store.record(c_name).put(db3, s_map);
         print("Channel added successfully");
     }
