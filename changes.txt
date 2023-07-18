@@ -8,3 +8,9 @@
 #keep care vo same banda phr na add ho jaye channel aur server mei 
 #show channel message
 #help
+
+
+
+#exit
+#close database
+#error handling

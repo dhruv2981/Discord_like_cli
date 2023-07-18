@@ -6,6 +6,7 @@ import 'package:bot/src/models/others.dart';
 import 'package:bot/src/models/admin.dart';
 import 'package:bot/src/models/direct_message.dart';
 import 'package:bot/src/models/server.dart';
+import 'package:bot/src/models/channel.dart';
 
 void main() async {
   var st = Storage.constructor1();
