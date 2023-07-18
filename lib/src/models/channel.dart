@@ -113,14 +113,14 @@ class Channel {
       }
       //if false => channel does not exist
       //hence creating a new channel and adding the current user as a member to the channel
-        Map<String, dynamic> s_map = {
-          'server_name': s_name,
-          'mem_list': [c_user1.username],
-          'type': c_type,
-        };
+      Map<String, dynamic> s_map = {
+        'server_name': s_name,
+        'mem_list': [c_user1.username],
+        'type': c_type,
+      };
 
-        await channel_store.record(c_name).put(db3, s_map);
-        print("Channel added successfully");
+      await channel_store.record(c_name).put(db3, s_map);
+      print("Channel added successfully");
     }
   }
 }

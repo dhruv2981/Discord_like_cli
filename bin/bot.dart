@@ -94,7 +94,7 @@ void main() async {
         break;
       // case "help":
       case "show_channels":
-        await show_channels(db2, server_store, c_user_c);
+        await c_server.show_channels(db2, server_store, c_user_c);
         break;
       case "current_user":
         await c_user_c.print_c_user(c_user_c);  
