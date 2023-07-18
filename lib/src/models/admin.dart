@@ -5,6 +5,10 @@ class C_user {
   String username;
   String password;
   C_user(this.username, this.password);
+
+  print_c_user() {
+    print(this.username);
+  }
 }
 
 class Admin {
@@ -88,12 +92,9 @@ class Admin {
       print("Incorrect password entered. Please try again");
       return;
     }
-
-    // print(c_user.username);
   }
 
   static logout(C_user c_user1) {
-    //still need a way to detect that the logout function needs to be implemeted(uske liye command line function banana padega...but this must work...so i wasnt able to test it)
     if (c_user1.username == "0") {
       print("No user has logged in you crazy fool");
       return;
@@ -101,6 +102,7 @@ class Admin {
       c_user1.username = "0";
       c_user1.password = "0";
       print("user successfully logged out");
+      return;
     }
   }
 }

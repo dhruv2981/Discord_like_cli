@@ -95,8 +95,12 @@ void main() async {
       case "show_channels":
         await show_channels(db2, server_store, c_user_c);
         break;
+      case "current_user":
+        await c_user_c.print_c_user();  
       case "logout":
         await Admin.logout(c_user_c);
+        break;
+      case "end":
         flag = false;
         break;
       default:
