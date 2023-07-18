@@ -19,3 +19,4 @@
 {"key":"s1","deleted":true}
 {"key":"a","value":{"chan_list":[],"mem_list":["a"]}}
 {"key":"s1","value":{"chan_list":[],"mem_list":["a"]}}
+{"key":"bb","value":{"chan_list":[],"mem_list":["a"]}}

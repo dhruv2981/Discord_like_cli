@@ -32,7 +32,7 @@ Future<void> channel_message(
     print("Server does not exist");
     return;
   }
-  //if the user is not in the channel
+  //if the user is not in the server
   bool flag1 = false;
   for (var user_name in pr['mem_list']) {
     if (user_name == username) {
@@ -48,6 +48,9 @@ Future<void> channel_message(
     stdout.write("In which channel do you want to message: ");
     String c_name = stdin.readLineSync() as String;
 
+    // stdout.write("Which type of channel: ");
+    // String c_type = stdin.readLineSync() as String;
+
     //checking validity of channel
     Map? po = await channel_store.record(c_name).get(db3)
         as Map?; // -->the corresponding channel to the channel name
@@ -58,9 +61,11 @@ Future<void> channel_message(
     }
     //if the user is not in the channel
     bool flag2 = false;
+    var c_type;
     for (var user_name in po['mem_list']) {
       if (user_name == username && po['server_name'] == s_name) {
         flag2 = true;
+        c_type = po['type'];
       }
     }
     if (!flag2) {
@@ -68,7 +73,6 @@ Future<void> channel_message(
       return;
     } else {
       //Assuming that the user is in the selected server and in the selected channel
-
       // message_record=await message_store.find(db4);
       stdout.write("Enter the message you want to send: ");
       String message = stdin.readLineSync() as String;
@@ -78,11 +82,6 @@ Future<void> channel_message(
       Map message_value = {'user': username, 'message': message};
       await message_store.record(message_key).put(db4, message_value);
       print("Message sent successfully.");
-
-      message_record = await message_store.find(db4);
-      for (var rec in message_record) {
-        print(rec.value);
-      }
     }
   }
 }
@@ -143,10 +142,12 @@ Future<void> show_channel_message(
       return;
     }
     //if the user is not in the channel
+    var c_type;
     bool flag2 = false;
     for (var user_name in po['mem_list']) {
       if (user_name == username && po['server_name'] == s_name) {
         flag2 = true;
+        c_type = po['type'];
       }
     }
     if (!flag2) {
@@ -155,6 +156,17 @@ Future<void> show_channel_message(
     } else {
       //Assuming that the user is in the selected server and in the selected channel
       message_record = await message_store.find(db4);
+      switch (c_type) {
+        case 'text':
+          print('Text messages in channel: ');
+          break;
+        case 'voice':
+          print('Audio messages in channel: ');
+          break;
+        case 'stage':
+          print('Messages in stage type channel: ');
+          break;
+      }
       for (var rec in message_record) {
         print(rec.value);
       }

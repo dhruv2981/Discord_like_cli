@@ -7,3 +7,4 @@
 {"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
 {"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
 {"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
+{"key":"a","value":{"server_name":"bb","mem_list":["a"],"type":"voice"}}
