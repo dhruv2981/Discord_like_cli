@@ -38,7 +38,7 @@ class Admin {
     //check if already that user exist
     //if exist throw error
     var record = await user_store.find(db1);
-    for (var rec in records) {
+    for (var rec in record) {
       if (rec.key == username) {
         print("Username already exists. Please choose a different username.");
         return;
