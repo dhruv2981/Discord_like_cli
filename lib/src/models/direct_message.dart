@@ -14,8 +14,8 @@ class Personal_dm {
       return;
     } else {
       stdout.write("Name of the person whom you want to send msg: ");
-      final receiver = stdin.readLineSync();
-      this.receiver = receiver;
+      this.receiver  = stdin.readLineSync();
+     
 
       //check receiver is a registered user
       var record = await user_store.find(db1);

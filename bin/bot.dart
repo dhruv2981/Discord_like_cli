@@ -101,7 +101,7 @@ void main() async {
       case "logout":
         await Admin.logout(c_user_c);
         break;
-      case "end":
+      case "exit":
         flag = false;
         break;
       default:

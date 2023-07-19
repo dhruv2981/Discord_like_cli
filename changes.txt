@@ -14,3 +14,7 @@
 #exit
 #close database
 #error handling
+
+
+//if channel is added it must be added to server database
+//if server s1 and channel c1 then adding a it is not showing server db

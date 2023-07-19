@@ -3,13 +3,19 @@ import 'package:sembast/sembast.dart';
 import 'admin.dart';
 import 'package:sembast/utils/value_utils.dart';
 
+enum RoleType{
+  owner,
+  mod,
+  newbie
+}
 class Server {
   late String name;
   late List<String> chan_list;
   late List<String> mem_list;
+  late RoleType role;
+  late List<String> categories;
+  
   // List<String> moderator;
-  
-  
 
   create_server(Database db2, StoreRef<String, Map> server_store,
       C_user c_user1, var server_record) async {
@@ -85,5 +91,3 @@ class Server {
     }
   }
 }
-
-

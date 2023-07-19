@@ -14,7 +14,8 @@ class Channel {
   late ChannelType type;
   late String server;
   late List<String> mem_list;
-
+  late String category;
+  
 
   add_channel(
     Database db2,
@@ -59,7 +60,7 @@ class Channel {
       final c_name = stdin.readLineSync() as String;
       this.name = c_name;
 
-      stdout.write("Channel Type: ");
+      stdout.write("Channel Type:[text/voice/stage] ");
       final c_type = stdin.readLineSync() as String;
 
       //ctype must be of particular types only
@@ -80,7 +81,8 @@ class Channel {
 
       //checking if such a channel exists
       // bool channel_exist = false;
-      for (var rec in channel_record) {
+      var c_record = await server_store.find(db3);
+      for (var rec in c_record) {
         //checking if this is the channel of the correct type and in the correct server  (shannel name making unique in a server)
         if (rec.key == c_name &&
             // rec.value['type'] == c_type &&

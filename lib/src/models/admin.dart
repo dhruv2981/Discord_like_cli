@@ -91,7 +91,7 @@ class Admin {
     //if both coorect login successfully
 
     var actual_pwd = await user_store.record(username).get(db1);
-    print(actual_pwd);
+    
     if (actual_pwd == null) {
       return;
     }
