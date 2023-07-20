@@ -3,18 +3,15 @@ import 'package:sembast/sembast.dart';
 import 'admin.dart';
 import 'package:sembast/utils/value_utils.dart';
 
-enum RoleType{
-  owner,
-  mod,
-  newbie
-}
+enum RoleType { admin, mod, newbie }
+
 class Server {
   late String name;
-  late List<String> chan_list;
-  late List<String> mem_list;
+  late List<Map<String, dynamic>> mem_list;
   late RoleType role;
-  late List<String> categories;
-  
+  late List<dynamic> cat_list;
+  late List<String> chan_list;
+
   // List<String> moderator;
 
   create_server(Database db2, StoreRef<String, Map> server_store,
@@ -29,6 +26,7 @@ class Server {
       stdout.write("Name of the server: ");
       final s_name = stdin.readLineSync() as String;
       this.name = s_name;
+
       var server_record = await server_store.find(db2);
       for (var rec in server_record) {
         if (rec.key == s_name) {
@@ -36,12 +34,22 @@ class Server {
           return;
         }
       }
-      Map<String, List<String>> s_map = {
-        'chan_list': [],
-        'mem_list': [c_user1.username],
+
+      stdout.write("Type password with which users can access mod role: ");
+      final String s_pwd = stdin.readLineSync() as String;
+      Map user_role = {
+        'name': c_user1.username,
+        'role': "admin",
       };
-      this.chan_list = s_map['chan_list'] as List<String>;
-      this.mem_list = s_map['mem_list'] as List<String>;
+
+      List<Map> role_list = [user_role];
+
+      Map<String, dynamic> s_map = {
+        'cat_list': [],
+        'mem_list': role_list,
+        's_pwd': Admin.hashPwd(s_pwd),
+      };
+
       await server_store.record(s_name).put(db2, s_map);
       print("Server created successfully");
     }
@@ -68,26 +76,55 @@ class Server {
         return;
       }
 
-      Map pr = await server_store.record(s_name).get(db2) as Map;
+      Map<String, dynamic> pr =
+          await server_store.record(s_name).get(db2) as Map<String, dynamic>;
       //if the user is already in the server
-      bool user_in_server = false;
-      for (var user in pr['mem_list']) {
-        if (user == c_user1.username) {
-          user_in_server = true;
+      // if (pr['mem_list'][] == null) {
+      //   return;
+      // }
+      List b = pr['mem_list'];
+      for (var use in b) {
+        if (use['name'] == c_user1.username) {
+          print("The user is already in the given server");
+          return;
         }
       }
-      if (user_in_server) {
-        print("The user is already in the given server");
-        return;
-      } else {
-        //the user is not in the server, hence adding it
-        pr = cloneMap(pr); // Create a copy of the map
-        pr['mem_list'].add(c_user1.username);
-        await server_store.record(s_name).delete(db2);
-        await server_store.record(s_name).put(db2, pr);
-        print("User successfully added to the server");
+      //the user is not in the server, hence adding it
+      stdout.write("Role [mod/newbie]: ");
+      final role_type = stdin.readLineSync() as String;
+      var user_role;
+      switch (role_type) {
+        case 'mod':
+          stdout.write("Enter password for mod access: ");
+          String s_pass = stdin.readLineSync() as String;
+          // s_pass = Admin.hashPwd(s_pass);
+
+          if (Admin.comparePwd(s_pass, pr['s_pwd'])) {
+            user_role = RoleType.mod;
+            break;
+          } else {
+            print("Invalid password ");
+            return;
+          }
+
+        case 'newbie':
+          user_role = RoleType.newbie;
+
+          break;
+        default:
+          print("Please enter a valid role");
+          return;
       }
-      //do we need to check the user has already not joined channel
+      Map aa = {
+        'name': c_user1.username,
+        'role': role_type,
+      };
+      pr = cloneMap(pr); // Create a copy of the map
+      pr['mem_list'].add(aa);
+      await server_store.record(s_name).delete(db2);
+      await server_store.record(s_name).put(db2, pr);
+      print("User successfully added to the server");
     }
+    //do we need to check the user has already not joined channel
   }
 }

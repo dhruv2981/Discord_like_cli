@@ -10,11 +10,23 @@
 #help
 
 
-
-#exit
 #close database
 #error handling
 
 
+//first when server made assign that user admin and type password for mod acess
+//change role feature  allow admin to change other member role    and change role function for user and admin   user require mod acess pass
+//map of user and role instead of mem_list in server and use the roles in channel .db
+
+//server when created 
+
+
+
 //if channel is added it must be added to server database
 //if server s1 and channel c1 then adding a it is not showing server db
+
+
+//user can also ask for mod access
+//plus admin can also make someone mod
+
+//channel mei mod

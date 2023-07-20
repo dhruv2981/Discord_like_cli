@@ -3,14 +3,6 @@ in `lib/`, and example unit test in `test/`.
 
 
 #DOCS
-
-
-//abhi login mei encrypting kaam nhi kar rhi
-
-
-
-//user should not be able to send message without logged in
-
 #Input Commands
 
 >>register: to register the user in mydiscord cli
@@ -31,3 +23,7 @@ in `lib/`, and example unit test in `test/`.
 login
 #a,a
 #b,b
+
+
+server
+#s1,s1
