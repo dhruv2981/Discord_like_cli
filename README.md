@@ -19,6 +19,9 @@ in `lib/`, and example unit test in `test/`.
 >>show_channels: to print channels in a server
 >>exit: to move out of shell
 
+>>channel can be made with a user of any role   it is not okay
+>>if channel already exist u dont need to tell type of channel as only a unique channel name in a server
+>>channel name in server is unique
 
 login
 #a,a

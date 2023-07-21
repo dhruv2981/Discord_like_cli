@@ -43,9 +43,11 @@ class Server {
       };
 
       List<Map> role_list = [user_role];
+      List<Map> chan_cat_list = [];
 
       Map<String, dynamic> s_map = {
-        'cat_list': [],
+        'chan_list': [],
+        'cat_list': chan_cat_list,
         'mem_list': role_list,
         's_pwd': Admin.hashPwd(s_pwd),
       };

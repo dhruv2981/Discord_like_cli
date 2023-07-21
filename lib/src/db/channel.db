@@ -1,10 +1,5 @@
 {"version":1,"sembast":1}
-{"key":"a","value":{"server_name":"b","mem_list":["f"],"type":"text"}}
-{"key":"aa","value":{"server_name":"aa","mem_list":["a"],"type":"text"}}
-{"key":"c","value":{"server_name":"c","mem_list":["a"],"type":"text"}}
-{"key":"c1","value":{"server_name":"a","mem_list":["a"],"type":"text"}}
-{"key":"c3","value":{"server_name":"s1","mem_list":["a","f"],"type":"text"}}
-{"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
-{"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
-{"key":"c1","value":{"server_name":"s1","mem_list":["a"],"type":"text"}}
-{"key":"a","value":{"server_name":"bb","mem_list":["a"],"type":"voice"}}
+{"key":"c1","value":{"server_name":"s1","category_name":null,"mem_list":["a","b"],"type":"text"}}
+{"key":"c2","value":{"server_name":"s1","category_name":"cat1","mem_list":["a"],"type":"text"}}
+{"key":"c2","deleted":true}
+{"key":"c2","value":{"server_name":"s1","category_name":"cat1","mem_list":["a","b"],"type":"text"}}
