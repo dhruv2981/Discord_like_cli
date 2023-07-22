@@ -6,7 +6,7 @@ import 'package:sembast/utils/value_utils.dart';
 
 enum ChannelType { text, voice, stage, rules, announcement }
 
-class Channel extends comm_function{
+class Channel extends comm_function {
   late String name;
   late ChannelType type;
   late String server;
@@ -14,13 +14,7 @@ class Channel extends comm_function{
   late String category;
 
   add_channel(
-    Database db2,
-    Database db3,
-    StoreRef<String, Map> channel_store,
-    StoreRef<String, Map> server_store,
-    C_user c_user1,
-    var channel_record,
-    var server_record,
+    Database db2,Database db3, StoreRef<String, Map> channel_store,StoreRef<String, Map> server_store,C_user c_user1,var channel_record,var server_record,
   ) async {
     //if no user is logged in
     if (await super.user_logged_in(c_user1)) {
@@ -29,35 +23,18 @@ class Channel extends comm_function{
       stdout.write("Server in which u want to add channel: ");
       final s_name = stdin.readLineSync() as String;
 
-      //keep care of record these are of time when connection function was called
-      var s_record = await server_store.find(db2);
-
       //checking if such a sever exist and if the user is in that server
-      bool user_in_server = false;
-      bool server_exist = false;
-      for (var rec in s_record) {
-        if (rec.key == s_name) {
-          server_exist = true;
-          for (var user in rec.value['mem_list']) {
-            if (user['name'] == c_user1.username) {
-              user_in_server = true;
-            }
-          }
-        }
-      }
-      //if user not in this server or if the server does not exist
-      if (!server_exist) {
-        print("Server with this name does not exist");
+      if (await super.no_any_server_exist(s_name, db2, server_store)) {
         return;
       }
-      if (!user_in_server) {
-        print("User is not in this server");
+      if (!await super.user_in_server(s_name, db2, server_store, c_user1)) {
         return;
       }
+
       //user is in such a server
       var cat_name;
       stdout.write(
-          'Add channel in category or as direct channel in server[c/s]: ');
+          'Add channel in category(c) or as direct channel in server(s) [c/s]: ');
       final input = stdin.readLineSync();
       switch (input) {
         case "c":
@@ -71,22 +48,13 @@ class Channel extends comm_function{
           return;
       }
       //check that category exist in server
-      bool cat_exist = false;
       if (input == "c") {
-        Map rec = await server_store.record(s_name).get(db2) as Map;
-
-        for (var r in rec['cat_list']) {
-          if (r['name'] == cat_name) {
-            cat_exist = true;
-            break;
-          }
-        }
-        if (!cat_exist) {
-          print("Category dont exist");
+        if (!await super
+            .cat_exist_in_server(cat_name, s_name, db2, server_store)) {
           return;
         }
       }
-
+     
       stdout.write("Channel Name: ");
       final c_name = stdin.readLineSync() as String;
       this.name = c_name;
@@ -113,7 +81,7 @@ class Channel extends comm_function{
         }
       }
 
-//   checking if category is in server and checking channel is in category typed
+//    checking channel is in category typed  
 
       //checking if such a channel exists
       var c_record = await server_store.find(db3);
@@ -212,4 +180,3 @@ class Channel extends comm_function{
   }
 }
 
-//check channel is in category
