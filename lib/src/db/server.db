@@ -1,2 +1,8 @@
 {"version":1,"sembast":1}
-
+{"key":"s1","value":{"chan_list":[],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$BzOboI4gStADsKI1$PXJIx8QMYvSP/RBPKBWH127UQwEP421.IWObhaEgFu4"}}
+{"key":"s1","deleted":true}
+{"key":"s1","value":{"chan_list":["chan1"],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$BzOboI4gStADsKI1$PXJIx8QMYvSP/RBPKBWH127UQwEP421.IWObhaEgFu4"}}
+{"key":"s1","deleted":true}
+{"key":"s1","value":{"chan_list":["chan1"],"cat_list":[{"name":"cat1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$BzOboI4gStADsKI1$PXJIx8QMYvSP/RBPKBWH127UQwEP421.IWObhaEgFu4"}}
+{"key":"s1","deleted":true}
+{"key":"s1","value":{"chan_list":["chan1"],"cat_list":[{"name":"cat1","chan_list":["chan2"]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$BzOboI4gStADsKI1$PXJIx8QMYvSP/RBPKBWH127UQwEP421.IWObhaEgFu4"}}

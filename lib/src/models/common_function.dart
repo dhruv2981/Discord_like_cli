@@ -76,9 +76,9 @@ class comm_function {
   Future<bool> user_logged_in(C_user c_user1) async {
     if (c_user1.username == "0") {
       print("No user has logged in you crazy fool");
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
 }
