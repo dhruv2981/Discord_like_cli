@@ -160,7 +160,7 @@ class Server extends comm_function {
               pr['cat_list'].add(cat);
               await server_store.record(s_name).delete(db2);
               await server_store.record(s_name).put(db2, pr);
-              // print('Category created successfully 1');
+              print('\x1B[32mCategory created successfully\x1B[32m');
               return;
             } else {
               //the category list is not empty ....hence looking if the entered category is present

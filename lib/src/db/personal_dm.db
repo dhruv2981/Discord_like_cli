@@ -1,10 +1,1 @@
 {"version":1,"sembast":1}
-<<<<<<< HEAD
-{"key":{"sender":"f","receiver":"c"},"value":"\"horr bete\""}
-{"key":{"sender":"f","receiver":"a"},"value":"bete chal pya"}
-{"key":{"sender":"f","receiver":"a"},"value":"\"maza aa raha hai msg krke\""}
-{"key":{"sender":"a","receiver":"a"},"value":"\"khud ko msg krne lag gya hun\""}
-{"key":{"sender":"f","receiver":"r"},"value":"just checking baby"}
-{"key":{"sender":"a","receiver":"f"},"value":"this is the new message"}
-=======
->>>>>>> e08ee83 (github issues)

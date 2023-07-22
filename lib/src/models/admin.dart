@@ -88,28 +88,28 @@ class Admin extends comm_function {
     //check user is in record otherwise register
     if (!(await super.is_registered(username, db1, user_store, c_user1))) {
       print("\x1B[31mUser is not registered.Please register first\x1B[0m");
+    }
 
-      //if username correct and password dont match throw error  and if both coorect login successfully
-      var actual_pwd = await user_store.record(username).get(db1);
+    //if username correct and password dont match throw error  and if both coorect login successfully
+    var actual_pwd = await user_store.record(username).get(db1);
 
-      if (actual_pwd == null) {
-        return;
-      }
-      stdout.write("Password :");
-      final pass = stdin.readLineSync();
-      if (pass == null) {
-        return;
-      } else if (comparePwd(pass, actual_pwd)) {
-        c_user1.username = username;
-        c_user1.password = pass;
-        print("\x1B[32mUser Logged in\x1B[0m");
+    if (actual_pwd == null) {
+      return;
+    }
+    stdout.write("Password :");
+    final pass = stdin.readLineSync();
+    if (pass == null) {
+      return;
+    } else if (comparePwd(pass, actual_pwd)) {
+      c_user1.username = username;
+      c_user1.password = pass;
+      print("\x1B[32mUser Logged in\x1B[0m");
 
-        String coloreduser = '\x1B[32m$username \x1B[0m';
-        print("\x1B[32mThe logged in user is: " + coloreduser);
-      } else {
-        print("\x1B[31mIncorrect password entered. Please try again\x1B[0m");
-        return;
-      }
+      String coloreduser = '\x1B[32m$username \x1B[0m';
+      print("\x1B[32mThe logged in user is: " + coloreduser);
+    } else {
+      print("\x1B[31mIncorrect password entered. Please try again\x1B[0m");
+      return;
     }
   }
 
