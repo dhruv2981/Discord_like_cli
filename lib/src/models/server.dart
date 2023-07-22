@@ -1,11 +1,13 @@
 import 'dart:io';
+import 'package:bot/src/models/common_function.dart';
 import 'package:sembast/sembast.dart';
 import 'admin.dart';
 import 'package:sembast/utils/value_utils.dart';
+// import 'common_function.dart';
 
 enum RoleType { admin, mod, newbie }
 
-class Server {
+class Server extends comm_function {
   late String name;
   late List<Map<String, dynamic>> mem_list;
   late RoleType role;
@@ -16,8 +18,7 @@ class Server {
 
   create_server(Database db2, StoreRef<String, Map> server_store,
       C_user c_user1, var server_record) async {
-    if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+    if (await super.user_logged_in(c_user1)) {
       return;
     } else {
       //if server already exist
@@ -27,14 +28,9 @@ class Server {
       final s_name = stdin.readLineSync() as String;
       this.name = s_name;
 
-      var server_record = await server_store.find(db2);
-      for (var rec in server_record) {
-        if (rec.key == s_name) {
-          print("Server already exists. Please choose a different servername.");
-          return;
-        }
+      if (await super.server_already_exist(s_name, db2, server_store)) {
+        return;
       }
-
       stdout.write("Type password with which users can access mod role: ");
       final String s_pwd = stdin.readLineSync() as String;
       Map user_role = {
@@ -58,24 +54,19 @@ class Server {
 
   join_server(Database db2, StoreRef<String, Map> server_store, C_user c_user1,
       var server_record) async {
-    if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+   if (await super.user_logged_in(c_user1)) {
       return;
     } else {
-      var server_record = await server_store.find(db2);
+      
       stdout.write("Name of the server: ");
       final s_name = stdin.readLineSync() as String;
       this.name = s_name;
-      bool flag = false;
-      for (var rec in server_record) {
-        if (rec.key == s_name) {
-          flag = true;
-        }
-      }
-      if (!flag) {
-        print("No server with such name exists");
+
+       if (await super.no_any_server_exist(s_name, db2, server_store)) {
         return;
       }
+     
+     
 
       Map<String, dynamic> pr =
           await server_store.record(s_name).get(db2) as Map<String, dynamic>;

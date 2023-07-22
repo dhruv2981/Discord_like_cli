@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:sembast/sembast.dart';
 import 'dart:convert';
 import 'package:crypt/crypt.dart';
+import 'common_function.dart';
 
 class C_user {
   String username;
@@ -17,7 +18,7 @@ class C_user {
   }
 }
 
-class Admin {
+class Admin extends comm_function{
   String username;
   String password;
   Admin(this.username, this.password);
@@ -33,6 +34,10 @@ class Admin {
 
   static Future<void> register(Database db1,
       StoreRef<String, String> user_store, var records, C_user c_user1) async {
+    if (c_user1.username != "0") {
+      print("Please logout first");
+      return;
+    }
     stdout.write("Username: ");
     final username = stdin.readLineSync() as String;
     //check if already that user exist
@@ -68,6 +73,10 @@ class Admin {
 
   static Future<void> login(Database db1, StoreRef<String, String> user_store,
       var records, C_user c_user1) async {
+    if (c_user1.username != "0") {
+      print("Please logout first");
+      return;
+    }
     stdout.write("Username: ");
     final username = stdin.readLineSync();
     final record = await user_store.find(db1);

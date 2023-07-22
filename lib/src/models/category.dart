@@ -14,4 +14,5 @@ class Category {
   late String name;
   late List<String> chan_list;
   late String server;
+  
 }

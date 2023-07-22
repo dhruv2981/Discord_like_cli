@@ -19,6 +19,10 @@ in `lib/`, and example unit test in `test/`.
 >>show_channels: to print channels in a server
 >>exit: to move out of shell
 
+>>channel can be made with a user of mod/admin role and channel type will be asked only if user is first one to add_channel      
+>>if channel already exist u dont need to tell type of channel as only a unique channel name in a server
+>>channel name in server is unique
+
 
 login
 #a,a
