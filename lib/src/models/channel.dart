@@ -44,7 +44,7 @@ class Channel extends comm_function {
         case "s":
           break;
         default:
-          print("Inavlid Input");
+          print("\x1B[31mInavlid Input\x1B[0m");
           return;
       }
       //check that category exist in server
@@ -65,7 +65,7 @@ class Channel extends comm_function {
           if (a.key == c_name &&
               a.value['server_name'] == s_name &&
               a.value['cat_name'] == null) {
-            print("This name is taken by any direct channel in server");
+            print("\x1B[31mThis name is taken by any direct channel in server\x1B[0m");
             return;
           }
         }
@@ -75,7 +75,7 @@ class Channel extends comm_function {
           if (a.key == c_name &&
               a.value['server_name'] == s_name &&
               a.value['cat_name'] != null) {
-            print("This name is taken by any  channel in some category");
+            print("\x1B[31mThis name is taken by any channel in some category\x1B[0m");
             return;
           }
         }
@@ -91,7 +91,7 @@ class Channel extends comm_function {
           //hence checking if the current user is already in the channel
           for (var user in rec.value['mem_list']) {
             if (user == c_user1.username) {
-              print("User is already in the channel");
+              print("\x1B[31mUser is already in the channel\x1B[0m");
               return;
             }
           }
@@ -102,7 +102,7 @@ class Channel extends comm_function {
           po['mem_list'].add(c_user1.username);
           await channel_store.record(c_name).delete(db3);
           await channel_store.record(c_name).put(db3, po);
-          print("Channel added successfully");
+          print("\x1B[32mChannel added successfully\x1B[0m");
           return;
         }
       }
@@ -139,7 +139,7 @@ class Channel extends comm_function {
         }
       }
       if (c_user_role == "newbie") {
-        print("Only admin and mod users can create new channel");
+        print("\x1B[31mOnly admin and mod users can create new channel\x1B[0m");
         return;
       }
 
@@ -158,7 +158,7 @@ class Channel extends comm_function {
         pr['chan_list'].add(c_name);
         await server_store.record(s_name).delete(db2);
         await server_store.record(s_name).put(db2, pr);
-        print('User added to the channel successfully');
+        print('\x1B[32mUser added to the channel successfully\x1B[0m');
       }
 
 // adding channel in category in server.db if category is not null
@@ -176,7 +176,7 @@ class Channel extends comm_function {
         await server_store.record(s_name).put(db2, aa);
       }
     }
-    print("Channel added successfully");
+    print("\x1B[32mChannel added successfully\x1B[0m");
   }
 }
 

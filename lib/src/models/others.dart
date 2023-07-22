@@ -11,7 +11,7 @@ Future<void> printModUsers(
 
   //user has logged in
   if (c_user1.username == "0") {
-    print("No user has logged in you crazy fool");
+    print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
     return;
   } else {
     //check server exist
@@ -23,7 +23,7 @@ Future<void> printModUsers(
       }
     }
     if (!flag) {
-      print("No server with such name exists");
+      print("\x1B[31mNo server with such name exists\x1B[0m");
       return;
     }
 
@@ -48,7 +48,7 @@ show_server_structure(
       //hence printing the server
       print("Server name: " + rec.key);
       Map pr = await server_store.record(s_name).get(db2) as Map;
-      print("Members in channel: ");
+      print("Members in server: ");
       // print(pr['mem_list']);
       for (Map member in pr['mem_list']) {
         print(member['name']);
@@ -68,7 +68,7 @@ show_server_structure(
       }
       return;
     }
-    print("Server does not exist");
+    print("\x1B[31mServer does not exist\x1B[0m");
     return;
   }
 }
@@ -77,7 +77,7 @@ demoteUser(Database db2, Database db3, StoreRef<String, Map> server_store,
     StoreRef<String, Map> channel_store, C_user c_user1) {
   //user has logged in
   if (c_user1.username == "0") {
-    print("No user has logged in you crazy fool");
+    print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
     return;
   }
   

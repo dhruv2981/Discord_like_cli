@@ -10,7 +10,7 @@ class C_user {
 
   print_c_user(C_user c_user1) {
     if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+      print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
       return;
     }
     print(this.username);
@@ -35,7 +35,7 @@ class Admin extends comm_function {
   Future<void> register(Database db1, StoreRef<String, String> user_store,
        C_user c_user1) async {
     if (c_user1.username != "0") {
-      print("Please logout first");
+      print("\x1B[31mPlease logout first\x1B[0m");
       return;
     }
     stdout.write("Username: ");
@@ -45,7 +45,7 @@ class Admin extends comm_function {
     var record = await user_store.find(db1);
     for (var rec in record) {
       if (rec.key == username) {
-        print("Username already exists. Please choose a different username.");
+        print("\x1B[31mUsername already exists. Please choose a different username.\x1B[0m");
         return;
       }
     }
@@ -56,7 +56,7 @@ class Admin extends comm_function {
     var con_pass = stdin.readLineSync() as String;
 
     if (pass != con_pass) {
-      print("Password dont match");
+      print("\x1B[31mPassword dont match\x1B[0m");
       return;
     }
     pass = hashPwd(pass);
@@ -66,14 +66,15 @@ class Admin extends comm_function {
     c_user1.username = username;
     c_user1.password = pass;
 
-    print('User registered successfully');
-    print("The logged in user is: " + c_user1.username);
+    print('\x1B[32mUser registered successfully\x1B[0m');
+    String coloreduser = '\x1B[32m$username\x1B[0m';
+    print("\x1B[32mThe logged in user is: " + coloreduser);
   }
 
   Future<void> login(Database db1, StoreRef<String, String> user_store,
        C_user c_user1) async {
     if (c_user1.username != "0") {
-      print("Please logout first");
+      print("\x1B[31mPlease logout first\x1B[0m");
       return;
     }
     stdout.write("Username: ");
@@ -85,7 +86,7 @@ class Admin extends comm_function {
 
     //check user is in record otherwise register
     if (!await super.is_registered(username, db1, user_store, c_user1)) {
-      print("User is not registered.Please register first");
+      print("\x1B[31mUser is not registered.Please register first\x1B[0m");
       return;
     }
    
@@ -102,22 +103,24 @@ class Admin extends comm_function {
     } else if (comparePwd(pass, actual_pwd)) {
       c_user1.username = username;
       c_user1.password = pass;
-      print("User Logged in");
-      print("The logged in user is: " + c_user1.username);
+      print("\x1B[32mUser Logged in\x1B[0m");
+
+      String coloreduser = '\x1B[32m$username \x1B[0m';
+      print("\x1B[32mThe logged in user is: " + coloreduser);
     } else {
-      print("Incorrect password entered. Please try again");
+      print("\x1B[31mIncorrect password entered. Please try again\x1B[0m");
       return;
     }
   }
 
   logout(C_user c_user1) {
     if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+      print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
       return;
     } else {
       c_user1.username = "0";
       c_user1.password = "0";
-      print("user successfully logged out");
+      print("\x1B[32muser successfully logged out\x1B[0m");
       return;
     }
   }

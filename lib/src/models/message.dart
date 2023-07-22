@@ -23,7 +23,7 @@ class Chan_message extends comm_function {
 
       //if the channel does not exist
       if (pr == null) {
-        print("Server does not exist");
+        print("\x1B[31mServer does not exist\x1B[0m");
         return;
       }
       //if the user is not in the server
@@ -37,7 +37,7 @@ class Chan_message extends comm_function {
         }
       }
       if (!flag1) {
-        print("The user is not in the given server");
+        print("\x1B[31mThe user is not in the given server\x1B[0m");
         return;
       } else {
         //means user is in the server
@@ -50,7 +50,7 @@ class Chan_message extends comm_function {
             as Map?; // -->the corresponding channel to the channel name
         //if the channel does not exist
         if (po == null) {
-          print("Channel does not exist");
+          print("\x1B[31mChannel does not exist\x1B[0m");
           return;
         }
         //if the user is not in the channel
@@ -63,14 +63,14 @@ class Chan_message extends comm_function {
           }
         }
         if (!flag2) {
-          print("The user is not in the given channel");
+          print("\x1B[31mThe user is not in the given channel\x1B[0m");
           return;
         } else {
           //checking role of user and type of channel and send message
 
           if (c_type == "stage" || c_type == "voice" || c_type == "rules") {
             if (user_role == "newbie") {
-              print("u need to have admin or mod role");
+              print("\x1B[31mU need to have admin or mod role\x1B[0m");
               return;
             }
           }
@@ -84,7 +84,7 @@ class Chan_message extends comm_function {
           Map message_key = {'channel_name': c_name, 'server_name': s_name};
           Map message_value = {'user': username, 'message': message};
           await message_store.record(message_key).put(db4, message_value);
-          print("Message sent successfully.");
+          print("\x1B[32mMessage sent successfully.\x1B[0m");
         }
       }
     }
@@ -111,7 +111,7 @@ class Chan_message extends comm_function {
 
       //if the channel does not exist
       if (pr == null) {
-        print("Server does not exist");
+        print("\x1B[31mServer does not exist\x1B[0m");
         return;
       }
       
@@ -128,7 +128,7 @@ class Chan_message extends comm_function {
             as Map?; // -->the corresponding channel to the channel name
         //if the channel does not exist
         if (po == null) {
-          print("Channel does not exist");
+          print("\x1B[31mChannel does not exist\x1B[0m");
           return;
         }
         //if the user is not in the channel
@@ -141,7 +141,7 @@ class Chan_message extends comm_function {
           }
         }
         if (!flag2) {
-          print("The user is not in the given channel");
+          print("\x1B[31mThe user is not in the given channel\x1B[0m");
           return;
         } else {
           //Assuming that the user is in the selected server and in the selected channel
