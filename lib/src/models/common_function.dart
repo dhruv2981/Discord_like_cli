@@ -5,7 +5,7 @@ import 'storage.dart';
 
 class comm_function {
 //for checking user is in server
-   Future<bool> user_in_server(String s_name, Database db2,
+  Future<bool> user_in_server(String s_name, Database db2,
       StoreRef<String, Map> server_store, C_user c_user1) async {
     var s_record = await server_store.find(db2);
     bool user_in_server = false;
@@ -67,7 +67,7 @@ class comm_function {
       }
     }
     if (!cat_exist) {
-      print("Category dont exist");
+      print("Category dont exist in server");
       return false;
     }
     return true;
@@ -76,9 +76,23 @@ class comm_function {
   Future<bool> user_logged_in(C_user c_user1) async {
     if (c_user1.username == "0") {
       print("No user has logged in you crazy fool");
+      return true;
+    }
+    return false;
+  }
+
+  Future<bool> is_registered(String receiver, Database db1,
+      StoreRef<String, String> user_store, C_user c_user1) async {
+    var record = await user_store.find(db1);
+    bool flag = false;
+    for (var rec in record) {
+      if (rec.key == receiver) {
+        flag = true;
+      }
+    }
+    if (!flag) {
       return false;
     }
     return true;
   }
-
 }

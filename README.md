@@ -23,6 +23,9 @@ in `lib/`, and example unit test in `test/`.
 >>if channel already exist u dont need to tell type of channel as only a unique channel name in a server
 >>channel name in server is unique
 
+>>independent channel
+
+
 
 login
 #a,a
@@ -31,3 +34,7 @@ login
 
 server
 #s1,s1
+
+//hide pswrd
+//add functions in bot
+//check channel in category

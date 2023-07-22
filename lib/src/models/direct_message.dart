@@ -3,6 +3,7 @@ import 'package:sembast/sembast.dart';
 import 'admin.dart';
 import 'common_function.dart';
 
+//done
 class Personal_dm extends comm_function {
   late final sender;
   late final receiver;
@@ -17,14 +18,8 @@ class Personal_dm extends comm_function {
       this.receiver = stdin.readLineSync();
 
       //check receiver is a registered user
-      var record = await user_store.find(db1);
-      bool flag = false;
-      for (var rec in record) {
-        if (rec.key == receiver) {
-          flag = true;
-        }
-      }
-      if (!flag) {
+      if (!(await super
+          .is_registered(this.receiver, db1, user_store, c_user1))) {
         print("No user with such name exists");
         return;
       }

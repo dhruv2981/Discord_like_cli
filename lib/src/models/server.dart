@@ -127,18 +127,15 @@ class Server extends comm_function {
       return;
     }
     //some user is logged in
-    stdout.write('In which server do you want to add category: ');
+    stdout.write('Enter server name of category: ');
     final String s_name = stdin.readLineSync() as String;
 
     var server_record = await server_store.find(db2);
     for (var rec in server_record) {
-      // print(rec.key);
-      // print(rec.value);
+     
       // server with such name exists
       if (rec.key == s_name) {
-        // print("Passed rec.key: " + rec.key);
-        // print(rec.value);
-
+     
         //means server of such name exist
         //checking if the user is in the server
         for (var member in rec.value['mem_list']) {
@@ -154,10 +151,9 @@ class Server extends comm_function {
             if (rec.value['cat_list'].isEmpty) {
               //no category exists
               //creating the category
-              // print("No category in server...hence creating category");
+        
               Map<String, dynamic> cat = {'name': name, 'chan_list': []};
-              // List<Map<String, dynamic>> cat_list = [];
-              // cat_list.add(cat);
+  
               Map<String, dynamic> pr = await server_store
                   .record(s_name)
                   .get(db2) as Map<String, dynamic>;
@@ -170,9 +166,7 @@ class Server extends comm_function {
               return;
             } else {
               //the category list is not empty ....hence looking if the entered category is present
-              // print('Category list is not empty');
-              // print(rec.value['cat_list']);
-              // print(rec.value['cat_list']['name']);
+            
               for (var category in rec.value['cat_list']) {
                 if (category['name'] == name) {
                   //category already present
@@ -190,7 +184,7 @@ class Server extends comm_function {
               pr['cat_list'].add(cat);
               await server_store.record(s_name).delete(db2);
               await server_store.record(s_name).put(db2, pr);
-              print('Category created successfully 2');
+              print('Category created successfully');
               return;
             }
           } else if (member['name'] == c_user1.username &&
@@ -217,27 +211,20 @@ class Server extends comm_function {
       C_user c_user1,
       var server_record,
       var channel_record) async {
-    if (c_user1.username == "0") {
-      // print("No user has logged in you crazy fool");
+    if (await super.user_logged_in(c_user1)) {
       return;
     }
     //some user is logged in
-    stdout.write('In which server do you want to add category: ');
+    stdout.write('Enter server name of channel: ');
     final String s_name = stdin.readLineSync() as String;
 
     server_record = await server_store.find(db2);
     for (var rec in server_record) {
-      // print(rec.key);
-      // print(rec.value);
-      // server with such name exists
       if (rec.key == s_name) {
-        // print("Passed rec.key: " + rec.key);
-        // print(rec.value);
 
         //means server of such name exist
         //checking if the user is in the server
         for (var member in rec.value['mem_list']) {
-          // print("Member: " + member);
 
           if (member['name'] == c_user1.username &&
               (member['role'] == 'mod' || member['role'] == 'admin')) {
@@ -245,16 +232,13 @@ class Server extends comm_function {
 
             stdout.write('Which channel do you want to move: ');
             String c_name = stdin.readLineSync() as String;
-            // print(c_name);
-            // print(rec.value['chan_list']);
             for (String channel in rec.value['chan_list']) {
-              // print(channel);
 
               if (channel == c_name) {
                 //the indep channel exists
                 //asking which channel to put into
                 stdout.write(
-                    'In which category do you want to write the channel: ');
+                    'In which category do you want to move the channel: ');
                 String in_cat = stdin.readLineSync() as String;
                 for (var cat in rec.value['cat_list']) {
                   if (cat['name'] == in_cat) {
@@ -296,7 +280,7 @@ class Server extends comm_function {
                 return;
               }
             }
-            print('Given independant channel does not exist');
+            print('Given independent channel does not exist');
             return;
           }
         }

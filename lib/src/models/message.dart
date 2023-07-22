@@ -5,26 +5,15 @@ import 'common_function.dart';
 
 class Chan_message extends comm_function {
   Future<void> channel_message(
-      Database db2,
-      Database db3,
-      Database db4,
-      StoreRef<String, Map> server_store,
-      StoreRef<String, Map> channel_store,
-      StoreRef<Map, Map> message_store,
-      C_user c_user1,
-      var server_record,
-      var channel_record,
-      var message_record) async {
+      Database db2,Database db3,Database db4,StoreRef<String, Map> server_store,
+      StoreRef<String, Map> channel_store,StoreRef<Map, Map> message_store,C_user c_user1) async {
     if (await super.user_logged_in(c_user1)) {
       return;
     } else {
+
       //Taking inputs of the server and channel in which user wants to message
       stdout.write("In which server do you want to message: ");
       String s_name = stdin.readLineSync() as String;
-
-      server_record = await server_store.find(db2);
-      channel_record = await channel_store.find(db3);
-      message_record = await message_store.find(db4);
 
       final String username = c_user1.username;
 
@@ -102,27 +91,17 @@ class Chan_message extends comm_function {
   }
 
   Future<void> show_channel_message(
-    Database db2,
-    Database db3,
-    Database db4,
-    StoreRef<String, Map> server_store,
-    StoreRef<String, Map> channel_store,
-    StoreRef<Map, Map> message_store,
-    C_user c_user1,
-    var server_record,
-    var channel_record,
-    var message_record,
+    Database db2, Database db3,Database db4,StoreRef<String, Map> server_store, 
+    StoreRef<String, Map> channel_store,StoreRef<Map, Map> message_store,C_user c_user1
+    
   ) async {
     if (await super.user_logged_in(c_user1)) {
       return;
     } else {
+
       //Taking inputs of the server and channel in which user wants to message
       stdout.write("In which server do you want to see all messages: ");
       String s_name = stdin.readLineSync() as String;
-
-      server_record = await server_store.find(db2);
-      channel_record = await channel_store.find(db3);
-      message_record = await message_store.find(db4);
 
       final String username = c_user1.username;
 
@@ -166,7 +145,7 @@ class Chan_message extends comm_function {
           return;
         } else {
           //Assuming that the user is in the selected server and in the selected channel
-          message_record = await message_store.find(db4);
+          var message_record = await message_store.find(db4);
           switch (c_type) {
             case 'text':
               print('Text messages in channel: ');

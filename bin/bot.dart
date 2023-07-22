@@ -16,6 +16,7 @@ void main() async {
   var c_channel = Channel();
   Personal_dm c_msg = Personal_dm();
   Chan_message chan_msg = Chan_message();
+  var fun = Admin.fun();
 
   List<dynamic> myList = await st.connection();
   Database db1 = myList[0];
@@ -45,10 +46,10 @@ void main() async {
     // final output = processInput(input);
     switch (input) {
       case "register":
-        await Admin.register(db1, user_store, records, c_user_c);
+        await fun.register(db1, user_store,  c_user_c);
         break;
       case "login":
-        await Admin.login(db1, user_store, records, c_user_c);
+        await fun.login(db1, user_store, c_user_c);
         break;
       case "join_server":
         await c_server.join_server(db2, server_store, c_user_c, server_record);
@@ -69,23 +70,11 @@ void main() async {
             server_store,
             channel_store,
             message_store,
-            c_user_c,
-            server_record,
-            channel_record,
-            message_record);
+            c_user_c);
         break;
       case "open_c_message":
         await chan_msg.show_channel_message(
-            db2,
-            db3,
-            db4,
-            server_store,
-            channel_store,
-            message_store,
-            c_user_c,
-            server_record,
-            channel_record,
-            message_record);
+            db2,db3,db4,server_store,channel_store, message_store,c_user_c);
         break;
       case "open_chats":
         await c_msg.open_personal_dm(db5, p_dm_store, c_user_c);
@@ -100,12 +89,13 @@ void main() async {
       case "add_category":
         await c_server.addCategory(db2, server_store, c_user_c, server_record);
       case "add_chan_to_cat":
-        await c_server.putChanInCat( db2,  db3,  server_store, channel_store, c_user_c, server_record, channel_record);
+        await c_server.putChanInCat(db2, db3, server_store, channel_store,
+            c_user_c, server_record, channel_record);
         break;
       case "current_user":
         await c_user_c.print_c_user(c_user_c);
       case "logout":
-        await Admin.logout(c_user_c);
+        await fun.logout(c_user_c);
         break;
       case "exit":
         flag = false;
