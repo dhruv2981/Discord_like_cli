@@ -15,6 +15,7 @@ void main() async {
   var c_server = Server();
   var c_channel = Channel();
   Personal_dm c_msg = Personal_dm();
+  Chan_message chan_msg = Chan_message();
 
   List<dynamic> myList = await st.connection();
   Database db1 = myList[0];
@@ -61,7 +62,7 @@ void main() async {
             c_user_c, channel_record, server_record);
         break;
       case "send_c_message":
-        await channel_message(
+        await chan_msg.channel_message(
             db2,
             db3,
             db4,
@@ -74,7 +75,7 @@ void main() async {
             message_record);
         break;
       case "open_c_message":
-        await show_channel_message(
+        await chan_msg.show_channel_message(
             db2,
             db3,
             db4,
@@ -97,7 +98,7 @@ void main() async {
         await show_channels(db2, server_store, c_user_c);
         break;
       case "current_user":
-        await c_user_c.print_c_user(c_user_c);  
+        await c_user_c.print_c_user(c_user_c);
       case "logout":
         await Admin.logout(c_user_c);
         break;
@@ -108,6 +109,7 @@ void main() async {
         print("Invalid input");
     }
   }
+  await printModUsers(db2, server_store, c_user_c);
   await db1.close();
   await db2.close();
   await db3.close();

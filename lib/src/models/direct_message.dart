@@ -1,21 +1,20 @@
 import 'dart:io';
 import 'package:sembast/sembast.dart';
 import 'admin.dart';
+import 'common_function.dart';
 
-class Personal_dm {
+class Personal_dm extends comm_function {
   late final sender;
   late final receiver;
   late final msg;
 
   personal_dm(Database db5, Database db1, StoreRef<Map, String> p_dm_store,
       StoreRef<String, String> user_store, C_user c_user1) async {
-    if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+    if (await super.user_logged_in(c_user1)) {
       return;
     } else {
       stdout.write("Name of the person whom you want to send msg: ");
-      this.receiver  = stdin.readLineSync();
-     
+      this.receiver = stdin.readLineSync();
 
       //check receiver is a registered user
       var record = await user_store.find(db1);
@@ -46,8 +45,7 @@ class Personal_dm {
 
   open_personal_dm(
       Database db5, StoreRef<Map, String> p_dm_store, C_user c_user1) async {
-    if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+    if (await super.user_logged_in(c_user1)) {
       return;
     } else {
       print("Messages");

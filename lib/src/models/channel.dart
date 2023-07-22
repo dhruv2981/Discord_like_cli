@@ -1,11 +1,12 @@
 import 'dart:io';
+import 'package:bot/src/models/common_function.dart';
 import 'package:sembast/sembast.dart';
 import 'admin.dart';
 import 'package:sembast/utils/value_utils.dart';
 
 enum ChannelType { text, voice, stage, rules, announcement }
 
-class Channel {
+class Channel extends comm_function{
   late String name;
   late ChannelType type;
   late String server;
@@ -22,8 +23,7 @@ class Channel {
     var server_record,
   ) async {
     //if no user is logged in
-    if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+    if (await super.user_logged_in(c_user1)) {
       return;
     } else {
       stdout.write("Server in which u want to add channel: ");
@@ -211,3 +211,5 @@ class Channel {
     print("Channel added successfully");
   }
 }
+
+//check channel is in category

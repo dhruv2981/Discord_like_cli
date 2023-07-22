@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:sembast/sembast.dart';
 import 'dart:convert';
 import 'package:crypt/crypt.dart';
+import 'common_function.dart';
 
 class C_user {
   String username;
@@ -17,7 +18,7 @@ class C_user {
   }
 }
 
-class Admin {
+class Admin extends comm_function{
   String username;
   String password;
   Admin(this.username, this.password);

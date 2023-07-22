@@ -1,12 +1,2 @@
 {"version":1,"sembast":1}
-{"key":"s1","value":{"chan_list":[],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":["c1"],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":["c1","cat1"],"cat_list":[{"name":"cate1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":["c1","cat1"],"cat_list":[{"name":"cate1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"},{"name":"b","role":"newbie"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":["c1","cat1"],"cat_list":[{"name":"cate1","chan_list":["c2"]}],"mem_list":[{"name":"a","role":"admin"},{"name":"b","role":"newbie"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":["c1","cat1","f1"],"cat_list":[{"name":"cate1","chan_list":["c2"]}],"mem_list":[{"name":"a","role":"admin"},{"name":"b","role":"newbie"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
+{"key":"s1","value":{"chan_list":["c1","cat1","f1"],"cat_list":[{"name":"cate1","chan_list":["c2"]}],"mem_list":[{"name":"a","role":"admin"},{"name":"b","role":"newbie"},{"name":"d","role":"mod"}],"s_pwd":"$5$rounds=1000$Up0vgmpnGjxk305H$x1qBzN98/aeBuTzp56CMDcs4t6CEVK9Xf0.R1QPLDv2"}}
