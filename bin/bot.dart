@@ -83,8 +83,8 @@ void main() async {
         await c_msg.personal_dm(db5, db1, p_dm_store, user_store, c_user_c);
         break;
       // case "help":
-      case "show_channels":
-        await show_channels(db2, server_store, c_user_c);
+      case "show_server_structure":
+        await show_server_structure(db2, server_store, c_user_c);
         break;
       case "add_category":
         await c_server.addCategory(db2, server_store, c_user_c, server_record);
