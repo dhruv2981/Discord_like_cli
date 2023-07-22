@@ -39,7 +39,7 @@ void main() async {
 
   bool flag = true;
   while (flag) {
-    stdout.write('\n>> ');
+    stdout.write('\n>>');
     var input = stdin.readLineSync() as String;
 
     // Process the input and perform desired operations
@@ -101,7 +101,7 @@ void main() async {
         flag = false;
         break;
       default:
-        print("Invalid input");
+        print("\x1B[31mInvalid input\x1B[0m");
     }
   }
   await printModUsers(db2, server_store, c_user_c);

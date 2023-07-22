@@ -46,7 +46,7 @@ class Server extends comm_function {
       };
 
       await server_store.record(s_name).put(db2, s_map);
-      print("Server created successfully");
+      print("\x1B[32mServer created successfully\x1B[0m");
     }
   }
 
@@ -75,7 +75,7 @@ class Server extends comm_function {
       List b = pr['mem_list'];
       for (var use in b) {
         if (use['name'] == c_user1.username) {
-          print("The user is already in the given server");
+          print("\x1B[31mThe user is already in the given server\x1B[0m");
           return;
         }
       }
@@ -93,7 +93,7 @@ class Server extends comm_function {
             user_role = RoleType.mod;
             break;
           } else {
-            print("Invalid password ");
+            print("\x1B[31mInvalid password \x1B[0m");
             return;
           }
 
@@ -102,7 +102,7 @@ class Server extends comm_function {
 
           break;
         default:
-          print("Please enter a valid role");
+          print("\x1B[31mPlease enter a valid role\x1B[0m");
           return;
       }
       Map aa = {
@@ -113,7 +113,7 @@ class Server extends comm_function {
       pr['mem_list'].add(aa);
       await server_store.record(s_name).delete(db2);
       await server_store.record(s_name).put(db2, pr);
-      print("User successfully added to the server");
+      print("\x1B[32mUser successfully added to the server\x1B[0m");
     }
     //do we need to check the user has already not joined channel
   }
@@ -168,7 +168,7 @@ class Server extends comm_function {
               for (var category in rec.value['cat_list']) {
                 if (category['name'] == name) {
                   //category already present
-                  print('Category already exists');
+                  print('\x1B[31mCategory already exists\x1B[0m');
                   return;
                 }
               }
@@ -182,21 +182,21 @@ class Server extends comm_function {
               pr['cat_list'].add(cat);
               await server_store.record(s_name).delete(db2);
               await server_store.record(s_name).put(db2, pr);
-              print('Category created successfully');
+              print('\x1B[32mCategory created successfully\x1B[32m');
               return;
             }
           } else if (member['name'] == c_user1.username &&
               member['role'] == 'newbie') {
-            print('User does not have access rights');
+            print('\x1B[31mUser does not have access rights\x1B[0m');
             return;
           }
         }
         //means the user is not in the server
-        print("User is not in the server");
+        print("\x1B[31mUser is not in the server\x1B[0m");
         return;
       }
       //means such a server does not exist
-      print("Server does not exist");
+      print("\x1B[31mServer does not exist\x1B[0m");
       return;
     }
   }
@@ -266,7 +266,7 @@ class Server extends comm_function {
                             po['category_name'] = in_cat;
                             await server_store.record(c_name).delete(db3);
                             await server_store.record(c_name).put(db3, po);
-                            print('Channel added to category successfully');
+                            print('\x1B[32mChannel added to category successfully\x1B[0m');
                             return;
                           }
                         }
@@ -274,19 +274,19 @@ class Server extends comm_function {
                     }
                   }
                 }
-                print("Category does not exist");
+                print("\x1B[31mCategory does not exist\x1B[0m");
                 return;
               }
             }
-            print('Given independent channel does not exist');
+            print('\x1B[31mGiven independent channel does not exist\x1B[0m');
             return;
           }
         }
-        print('User does not have appropriate access rights');
+        print('\x1B[31mUser does not have appropriate access rights\x1B[0m');
         return;
       }
     }
-    print('Server does not exist');
+    print('\x1B[31mServer does not exist\x1B[0m');
     return;
   }
 }

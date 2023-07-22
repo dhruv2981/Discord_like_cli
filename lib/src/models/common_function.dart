@@ -19,7 +19,7 @@ class comm_function {
       }
     }
     if (!user_in_server) {
-      print("User is not in this server");
+      print("\x1B[31mUser is not in this server\x1B[0m");
       return false;
     }
     return true;
@@ -32,7 +32,7 @@ class comm_function {
     var server_record = await server_store.find(db2);
     for (var rec in server_record) {
       if (rec.key == s_name) {
-        print("Server already exists. Please choose a different servername.");
+        print("\x1B[31mServer already exists. Please choose a different servername.\x1B[0m");
         return true;
       }
     }
@@ -49,7 +49,7 @@ class comm_function {
       }
     }
     if (!flag) {
-      print("No server with such name exists");
+      print("\x1B[31mNo server with such name exists\x1B[0m");
       return true;
     }
     return false;
@@ -67,7 +67,7 @@ class comm_function {
       }
     }
     if (!cat_exist) {
-      print("Category dont exist in server");
+      print("\x1B[31mCategory dont exist in server\x1B[0m");
       return false;
     }
     return true;
@@ -75,7 +75,7 @@ class comm_function {
 
   Future<bool> user_logged_in(C_user c_user1) async {
     if (c_user1.username == "0") {
-      print("No user has logged in you crazy fool");
+      print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
       return true;
     }
     return false;

@@ -20,7 +20,7 @@ class Personal_dm extends comm_function {
       //check receiver is a registered user
       if (!(await super
           .is_registered(this.receiver, db1, user_store, c_user1))) {
-        print("No user with such name exists");
+        print("\x1B[31mNo user with such name exists\x1B[0m");
         return;
       }
 
@@ -34,7 +34,7 @@ class Personal_dm extends comm_function {
       };
 
       await p_dm_store.record(pr).put(db5, this.msg);
-      print("Message sent successfully");
+      print("\x1B[32mMessage sent successfully\x1B[0m");
     }
   }
 
