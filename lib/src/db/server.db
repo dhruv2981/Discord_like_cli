@@ -1,4 +1,6 @@
 {"version":1,"sembast":1}
-{"key":"s1","value":{"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$51v8T64SiyijVPba$jZTQmfVsIJ9mmgA61GVDQ6duPzylbE6/40NuiRw3IT5"}}
+{"key":"s1","value":{"chan_list":[],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$lIS7OoQTLxptmVca$wGk2siEcmaSnLfQAUPgNqSWB4V6NS.jvZyVfH3h3gjB"}}
 {"key":"s1","deleted":true}
-{"key":"s1","value":{"cat_list":[],"mem_list":[{"name":"a","role":"admin"},{"name":"b","role":"mod"}],"s_pwd":"$5$rounds=1000$51v8T64SiyijVPba$jZTQmfVsIJ9mmgA61GVDQ6duPzylbE6/40NuiRw3IT5"}}
+{"key":"s1","value":{"chan_list":["f1"],"cat_list":[{"name":"cat1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$lIS7OoQTLxptmVca$wGk2siEcmaSnLfQAUPgNqSWB4V6NS.jvZyVfH3h3gjB"}}
+{"key":"s1","deleted":true}
+{"key":"s1","value":{"chan_list":[],"cat_list":[{"name":"cat1","chan_list":["f1"]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$lIS7OoQTLxptmVca$wGk2siEcmaSnLfQAUPgNqSWB4V6NS.jvZyVfH3h3gjB"}}
