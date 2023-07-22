@@ -77,6 +77,7 @@ class comm_function {
     if (c_user1.username == "0") {
       print("No user has logged in you crazy fool");
       return true;
+
     }
     return false;
   }
@@ -92,7 +93,7 @@ class comm_function {
     }
     if (!flag) {
       return false;
+
     }
     return false;
   }
-}
