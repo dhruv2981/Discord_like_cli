@@ -97,6 +97,11 @@ void main() async {
       case "show_channels":
         await show_channels(db2, server_store, c_user_c);
         break;
+      case "add_category":
+        await c_server.addCategory(db2, server_store, c_user_c, server_record);
+      case "add_chan_to_cat":
+        await c_server.putChanInCat( db2,  db3,  server_store, channel_store, c_user_c, server_record, channel_record);
+        break;
       case "current_user":
         await c_user_c.print_c_user(c_user_c);
       case "logout":

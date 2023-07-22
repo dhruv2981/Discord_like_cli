@@ -2,4 +2,6 @@
 {"key":"c1","value":{"server_name":"s1","category_name":null,"mem_list":["a"],"type":"text"}}
 {"key":"c2","value":{"server_name":"s1","category_name":"cate1","mem_list":["b"],"type":"text"}}
 {"key":"cat1","value":{"server_name":"s1","category_name":null,"mem_list":["a","b"],"type":"text"}}
-{"key":"f1","value":{"server_name":"s1","category_name":null,"mem_list":["b"],"type":"text"}}
+{"key":"f1","value":{"server_name":"s1","category_name":null,"mem_list":["b"],"type":"text"}}{"key":"f1","deleted":true}
+{"key":"f1","value":{"server_name":"s1","category_name":"cat1","mem_list":["b"],"type":"text"}}
+
