@@ -1,6 +1,10 @@
 {"version":1,"sembast":1}
+<<<<<<< HEAD
 {"key":"a","value":"$5$rounds=1000$J0YfdgAzIjHOADyg$Y3kG222Y7ZWWJwRP/4uk5BxZCJmNkmLcOgEJ7P.4iF4"}
 {"key":"c","value":"$5$rounds=1000$oTTTuQDw7O6KkUsG$hZ5YNDS.WxGQ9j7p14A95xxxs7C4D0qoMpVRTgMSCl6"}
 {"key":"g","value":"$5$rounds=1000$zipDwjmS3I9dE8q9$goCPecZcoT6kSGMX0jTJUNIuxptn09lmk9jYrB3870B"}
 {"key":"h","value":"$5$rounds=1000$pemECcUDTzAzeSIn$1PwexZHNpWbICemEz7AZh3l/sSfEjwhX0iFCUqe24jC"}
 {"key":"j","value":"$5$rounds=1000$XuqzvlC41SQRJKAB$DO5542rSPXCCwuV6OVjxUI.VuoFceB2b4iDOscaPK08"}
+=======
+{"key":"a","value":"$5$rounds=1000$vm1EEI3pQZPOFS5I$NX1QAj9SWfIjLZUPOfBSLU6QYrcwYS6gBUPRhF88mJ3"}
+>>>>>>> e08ee83 (github issues)

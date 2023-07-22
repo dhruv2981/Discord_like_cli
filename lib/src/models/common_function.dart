@@ -32,7 +32,8 @@ class comm_function {
     var server_record = await server_store.find(db2);
     for (var rec in server_record) {
       if (rec.key == s_name) {
-        print("\x1B[31mServer already exists. Please choose a different servername.\x1B[0m");
+        print(
+            "\x1B[31mServer already exists. Please choose a different servername.\x1B[0m");
         return true;
       }
     }
@@ -77,7 +78,6 @@ class comm_function {
     if (c_user1.username == "0") {
       print("\x1B[31mNo user has logged in you crazy fool\x1B[0m");
       return true;
-
     }
     return false;
   }
@@ -93,7 +93,8 @@ class comm_function {
     }
     if (!flag) {
       return false;
-
     }
-    return false;
+
+    return true;
   }
+}

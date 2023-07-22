@@ -12,6 +12,10 @@ dependencies:
   path: ^1.8.0
   sembast: ^3.0.0
   crypt: ^4.3.0
+<<<<<<< HEAD
+=======
+  console: ^4.1.0
+>>>>>>> e08ee83 (github issues)
 
 dev_dependencies:
   lints: ^2.0.0

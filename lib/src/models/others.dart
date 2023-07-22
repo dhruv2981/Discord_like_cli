@@ -41,6 +41,7 @@ show_server_structure(
   stdout.write('Show structure of which server: ');
   String s_name = stdin.readLineSync() as String;
   var server_record = await server_store.find(db2);
+  
 
   for (var rec in server_record) {
     if (rec.key == s_name) {
@@ -70,6 +71,7 @@ show_server_structure(
     }
     print("\x1B[31mServer does not exist\x1B[0m");
     return;
+    
   }
 }
 

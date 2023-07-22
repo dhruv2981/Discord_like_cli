@@ -1,4 +1,5 @@
 {"version":1,"sembast":1}
+<<<<<<< HEAD
 {"key":"s1","value":{"chan_list":[],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$yb1M1E1DdRMm64C1$weuuvsvwin2R5wGgZLrcu4UwdPn/YAZznzCV25q7o8."}}
 {"key":"s1","deleted":true}
 {"key":"s1","value":{"chan_list":["c1"],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$yb1M1E1DdRMm64C1$weuuvsvwin2R5wGgZLrcu4UwdPn/YAZznzCV25q7o8."}}
@@ -7,3 +8,5 @@
 {"key":"s1","value":{"chan_list":["c1"],"cat_list":[{"name":"cat1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$yb1M1E1DdRMm64C1$weuuvsvwin2R5wGgZLrcu4UwdPn/YAZznzCV25q7o8."}}
 {"key":"s1","deleted":true}
 {"key":"s1","value":{"chan_list":[],"cat_list":[{"name":"cat1","chan_list":["c1"]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$yb1M1E1DdRMm64C1$weuuvsvwin2R5wGgZLrcu4UwdPn/YAZznzCV25q7o8."}}
+=======
+>>>>>>> e08ee83 (github issues)

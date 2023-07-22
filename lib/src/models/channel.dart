@@ -27,7 +27,7 @@ class Channel extends comm_function {
       if (await super.no_any_server_exist(s_name, db2, server_store)) {
         return;
       }
-      if (!await super.user_in_server(s_name, db2, server_store, c_user1)) {
+      if (!(await super.user_in_server(s_name, db2, server_store, c_user1))) {
         return;
       }
 
@@ -49,8 +49,8 @@ class Channel extends comm_function {
       }
       //check that category exist in server
       if (input == "c") {
-        if (!await super
-            .cat_exist_in_server(cat_name, s_name, db2, server_store)) {
+        if (!(await super
+            .cat_exist_in_server(cat_name, s_name, db2, server_store))) {
           return;
         }
       }

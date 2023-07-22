@@ -32,8 +32,8 @@ class Admin extends comm_function {
     return hashedPwd.match(passvalue);
   }
 
-  Future<void> register(Database db1, StoreRef<String, String> user_store,
-       C_user c_user1) async {
+  Future<void> register(
+      Database db1, StoreRef<String, String> user_store, C_user c_user1) async {
     if (c_user1.username != "0") {
       print("\x1B[31mPlease logout first\x1B[0m");
       return;
@@ -41,11 +41,12 @@ class Admin extends comm_function {
     stdout.write("Username: ");
     final username = stdin.readLineSync() as String;
     //check if already that user exist and if exist throw error
-    
+
     var record = await user_store.find(db1);
     for (var rec in record) {
       if (rec.key == username) {
-        print("\x1B[31mUsername already exists. Please choose a different username.\x1B[0m");
+        print(
+            "\x1B[31mUsername already exists. Please choose a different username.\x1B[0m");
         return;
       }
     }
@@ -71,8 +72,8 @@ class Admin extends comm_function {
     print("\x1B[32mThe logged in user is: " + coloreduser);
   }
 
-  Future<void> login(Database db1, StoreRef<String, String> user_store,
-       C_user c_user1) async {
+  Future<void> login(
+      Database db1, StoreRef<String, String> user_store, C_user c_user1) async {
     if (c_user1.username != "0") {
       print("\x1B[31mPlease logout first\x1B[0m");
       return;
@@ -85,31 +86,30 @@ class Admin extends comm_function {
     }
 
     //check user is in record otherwise register
-    if (!await super.is_registered(username, db1, user_store, c_user1)) {
+    if (!(await super.is_registered(username, db1, user_store, c_user1))) {
       print("\x1B[31mUser is not registered.Please register first\x1B[0m");
-      return;
-    }
-   
-    //if username correct and password dont match throw error  and if both coorect login successfully
-    var actual_pwd = await user_store.record(username).get(db1);
 
-    if (actual_pwd == null) {
-      return;
-    }
-    stdout.write("Password :");
-    final pass = stdin.readLineSync();
-    if (pass == null) {
-      return;
-    } else if (comparePwd(pass, actual_pwd)) {
-      c_user1.username = username;
-      c_user1.password = pass;
-      print("\x1B[32mUser Logged in\x1B[0m");
+      //if username correct and password dont match throw error  and if both coorect login successfully
+      var actual_pwd = await user_store.record(username).get(db1);
 
-      String coloreduser = '\x1B[32m$username \x1B[0m';
-      print("\x1B[32mThe logged in user is: " + coloreduser);
-    } else {
-      print("\x1B[31mIncorrect password entered. Please try again\x1B[0m");
-      return;
+      if (actual_pwd == null) {
+        return;
+      }
+      stdout.write("Password :");
+      final pass = stdin.readLineSync();
+      if (pass == null) {
+        return;
+      } else if (comparePwd(pass, actual_pwd)) {
+        c_user1.username = username;
+        c_user1.password = pass;
+        print("\x1B[32mUser Logged in\x1B[0m");
+
+        String coloreduser = '\x1B[32m$username \x1B[0m';
+        print("\x1B[32mThe logged in user is: " + coloreduser);
+      } else {
+        print("\x1B[31mIncorrect password entered. Please try again\x1B[0m");
+        return;
+      }
     }
   }
 

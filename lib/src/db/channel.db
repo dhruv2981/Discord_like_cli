@@ -1,4 +1,7 @@
 {"version":1,"sembast":1}
+<<<<<<< HEAD
 {"key":"c1","value":{"server_name":"s1","category_name":null,"mem_list":["a"],"type":"text"}}
 {"key":"c1","deleted":true}
 {"key":"c1","value":{"server_name":"s1","category_name":"cat1","mem_list":["a"],"type":"text"}}
+=======
+>>>>>>> e08ee83 (github issues)
