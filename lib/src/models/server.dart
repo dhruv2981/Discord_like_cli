@@ -14,8 +14,6 @@ class Server extends comm_function {
   late List<Map<String, dynamic>> cat_list;
   // late List<String> chan_list;
 
-  // List<String> moderator;
-
   create_server(Database db2, StoreRef<String, Map> server_store,
       C_user c_user1, var server_record) async {
     if (await super.user_logged_in(c_user1)) {
