@@ -5,12 +5,16 @@ import 'common_function.dart';
 
 class Chan_message extends comm_function {
   Future<void> channel_message(
-      Database db2,Database db3,Database db4,StoreRef<String, Map> server_store,
-      StoreRef<String, Map> channel_store,StoreRef<Map, Map> message_store,C_user c_user1) async {
+      Database db2,
+      Database db3,
+      Database db4,
+      StoreRef<String, Map> server_store,
+      StoreRef<String, Map> channel_store,
+      StoreRef<Map, Map> message_store,
+      C_user c_user1) async {
     if (await super.user_logged_in(c_user1)) {
       return;
     } else {
-
       //Taking inputs of the server and channel in which user wants to message
       stdout.write("In which server do you want to message: ");
       String s_name = stdin.readLineSync() as String;
@@ -91,14 +95,16 @@ class Chan_message extends comm_function {
   }
 
   Future<void> show_channel_message(
-    Database db2, Database db3,Database db4,StoreRef<String, Map> server_store, 
-    StoreRef<String, Map> channel_store,StoreRef<Map, Map> message_store,C_user c_user1
-    
-  ) async {
+      Database db2,
+      Database db3,
+      Database db4,
+      StoreRef<String, Map> server_store,
+      StoreRef<String, Map> channel_store,
+      StoreRef<Map, Map> message_store,
+      C_user c_user1) async {
     if (await super.user_logged_in(c_user1)) {
       return;
     } else {
-
       //Taking inputs of the server and channel in which user wants to message
       stdout.write("In which server do you want to see all messages: ");
       String s_name = stdin.readLineSync() as String;
@@ -114,7 +120,7 @@ class Chan_message extends comm_function {
         print("\x1B[31mServer does not exist\x1B[0m");
         return;
       }
-      
+
       if (!(await super.user_in_server(s_name, db2, server_store, c_user1))) {
         return;
       } else {
@@ -158,7 +164,10 @@ class Chan_message extends comm_function {
               break;
           }
           for (var rec in message_record) {
+            // if (rec.key == c_name) {
             print("##" + rec.value['user'] + ": " + rec.value['message']);
+            return;
+            // }
           }
         }
       }

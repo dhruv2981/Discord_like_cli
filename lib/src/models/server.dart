@@ -30,7 +30,10 @@ class Server extends comm_function {
         return;
       }
       stdout.write("Type password with which users can access mod role: ");
+      stdin.echoMode = false;
       final String s_pwd = stdin.readLineSync() as String;
+      stdin.echoMode = true;
+      print('');
       Map user_role = {
         'name': c_user1.username,
         'role': "admin",

@@ -52,9 +52,17 @@ class Admin extends comm_function {
     }
 
     stdout.write("Password :");
+    stdin.echoMode = false;
+    // var pass = stdin.readLineSync().toString();
+
     var pass = stdin.readLineSync() as String;
+    stdin.echoMode = true;
+    print('');
     stdout.write("Confirm Password :");
+    stdin.echoMode = false;
     var con_pass = stdin.readLineSync() as String;
+    stdin.echoMode = true;
+    print('');
 
     if (pass != con_pass) {
       print("\x1B[31mPassword dont match\x1B[0m");
@@ -78,6 +86,7 @@ class Admin extends comm_function {
       print("\x1B[31mPlease logout first\x1B[0m");
       return;
     }
+   
     stdout.write("Username: ");
     final username = stdin.readLineSync();
 
@@ -97,7 +106,10 @@ class Admin extends comm_function {
       return;
     }
     stdout.write("Password :");
+    stdin.echoMode = false;
     final pass = stdin.readLineSync();
+    stdin.echoMode = true;
+    print('');
     if (pass == null) {
       return;
     } else if (comparePwd(pass, actual_pwd)) {

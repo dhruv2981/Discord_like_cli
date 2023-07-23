@@ -15,11 +15,11 @@ class Personal_dm extends comm_function {
       return;
     } else {
       stdout.write("Name of the person whom you want to send msg: ");
-      this.receiver = stdin.readLineSync();
+      receiver = stdin.readLineSync();
 
       //check receiver is a registered user
       if (!(await super
-          .is_registered(this.receiver, db1, user_store, c_user1))) {
+          .is_registered(receiver, db1, user_store, c_user1))) {
         print("\x1B[31mNo user with such name exists\x1B[0m");
         return;
       }

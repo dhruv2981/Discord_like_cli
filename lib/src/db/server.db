@@ -1,6 +1,1 @@
 {"version":1,"sembast":1}
-{"key":"s1","value":{"chan_list":[],"cat_list":[],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$a8EDOHjlyu0tm8Wm$j94.7Ymloe4G0jfSDTW9K5IQqucJUcwFsJZLom8KIQB"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":[],"cat_list":[{"name":"cat1","chan_list":[]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$a8EDOHjlyu0tm8Wm$j94.7Ymloe4G0jfSDTW9K5IQqucJUcwFsJZLom8KIQB"}}
-{"key":"s1","deleted":true}
-{"key":"s1","value":{"chan_list":[],"cat_list":[{"name":"cat1","chan_list":["c1"]}],"mem_list":[{"name":"a","role":"admin"}],"s_pwd":"$5$rounds=1000$a8EDOHjlyu0tm8Wm$j94.7Ymloe4G0jfSDTW9K5IQqucJUcwFsJZLom8KIQB"}}
